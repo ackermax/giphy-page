@@ -23,5 +23,14 @@ function makeButtons () {
 };
 
 $(document).ready(function(){
+//function when someone adds an animal button
+$("#animal-submit").click(function(e){
+    //stops button from doing stupid things I don't want it to do
+    e.preventDefault();
+
+})
+
+//call function to make buttons on page load
 makeButtons();
+
 });
