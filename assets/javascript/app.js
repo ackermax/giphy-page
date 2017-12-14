@@ -27,7 +27,14 @@ $(document).ready(function(){
 $("#animal-submit").click(function(e){
     //stops button from doing stupid things I don't want it to do
     e.preventDefault();
-
+    //grab animal choice from text box
+    var animal = $("#animal-choice").val().trim();
+    //clear text box
+    $("#animal-choice").val("");
+    //push the choice to the topics array to make buttons DYNAMICALLY (ooooooh)
+    topics.push(animal);
+    //run the button maker function to make those buttons, yo!
+    makeButtons();
 })
 
 //call function to make buttons on page load
