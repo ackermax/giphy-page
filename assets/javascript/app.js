@@ -22,6 +22,22 @@ function makeButtons () {
     }
 };
 
+//function to make animal gifs!
+function makeGIF () {
+    //grab our animal name to push through the API
+    var animal = $(this).attr("data-name");
+    //make our URL to push thorugh the GIPHY API
+    var animalURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=4EGhS1dX9sZBAAACNt4FVolnUPNRLVYc&limit=10";
+
+    //Make that AJAX call!
+    $.ajax({
+        url: animalURL,
+        method: "GET"
+    }).done(function(r){
+        console.log(r);
+    })
+};
+
 $(document).ready(function(){
 //function when someone adds an animal button
 $("#animal-submit").click(function(e){
