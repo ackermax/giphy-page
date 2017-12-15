@@ -60,6 +60,8 @@ function makeGIF() {
                     //give it the static url
                     "src": r.data[i].images.fixed_width_still.url,
                 })
+                //give it a class so we can animate it!
+                .addClass("animal-image")
                 //prepend this to the div with the rating we just made
                 .prependTo("#animal" + i);
             
@@ -72,7 +74,7 @@ function gifAnimate () {
     //if it's static
     if ($(this).attr("is-static") == "yes") {
     //change the static url to the animated one!
-    $(this).attr("src", this.attr("motion"));
+    $(this).attr("src", $(this).attr("motion"));
     //change is-static to "no"
     $(this).attr("is-static", "no");
     }
@@ -97,7 +99,7 @@ $(document).ready(function () {
     $(document).on("click", ".animal", makeGIF);
 
     //run our function to make gifs animate or go static again
-    $(document).on("click", ".inline", gifAnimate);
+    $(document).on("click", ".animal-image", gifAnimate);
 
     //call function to make buttons on page load
     makeButtons();
