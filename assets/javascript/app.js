@@ -24,6 +24,10 @@ function makeButtons() {
 
 //function to make animal gifs!
 function makeGIF() {
+    //make sure none of our buttons have active in them
+    $(".animal").removeClass("active");
+    //give our button the class of active to show it has been selected
+    $(this).addClass("active");
     //empty the #image-holder div
     $("#image-holder").empty();
     //grab our animal name to push through the API
