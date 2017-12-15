@@ -78,6 +78,13 @@ function gifAnimate () {
     //change is-static to "no"
     $(this).attr("is-static", "no");
     }
+    //otherwise if it's not static
+    else {
+        //change the animated url to the static one!
+        $(this).attr("src", $(this).attr("static"));
+        //change is-static back to "yes"
+        $(this).attr("is-static", "yes");
+    }
 };
 
 $(document).ready(function () {
