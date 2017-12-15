@@ -7,3 +7,9 @@ img {
 body {
     background-color: rgb(255, 225, 169);
 }
+.inline {
+    display: inline-block;
+}
+.inline p {
+    color: green;
+}

@@ -39,6 +39,16 @@ function makeGIF() {
         console.log("Step 2!");
         //when we got our stuff we gotta make some still images out of them
         for (var i = 0; i < r.data.length; i++) {
+            //make a div to store the image and the rating
+           $("<div>")
+           //add class so we can get these buddies looking good
+           .addClass("inline text-center")
+           //give it an id that we can use to append the picture to later
+           .attr("id", "animal" + i)
+           //add the rating to the div
+           .html("<p>Rating: " + r.data[i].rating + "</p>")
+           //append it to the #image-holder div
+           .appendTo("#image-holder");
             //make an image tag
             $("<img>")
                 //give it an attribute to go back to later so we know its static
@@ -50,8 +60,8 @@ function makeGIF() {
                     //give it the static url
                     "src": r.data[i].images.fixed_width_still.url,
                 })
-                //append this to the #image-holder div
-                .appendTo("#image-holder");
+                //prepend this to the div with the rating we just made
+                .prependTo("#animal" + i);
             console.log("image " + i);
         }
     })
