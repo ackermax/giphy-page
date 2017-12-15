@@ -12,7 +12,7 @@ function makeButtons() {
         //make the button
         $("<button>")
             //give it the animal class as well as our bootstrap classes
-            .addClass("animal btn btn-lg btn-info")
+            .addClass("animal btn btn-lg btn-primary")
             //give the button an attribute of the animal name
             .attr("data-name", topics[i])
             //add button text
