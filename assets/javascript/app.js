@@ -30,13 +30,13 @@ function makeGIF() {
     var animal = $(this).attr("data-name");
     //make our URL to push thorugh the GIPHY API
     var animalURL = "http://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=4EGhS1dX9sZBAAACNt4FVolnUPNRLVYc&limit=10";
-    console.log("Step one!")
+    
     //Make that AJAX call!
     $.ajax({
         url: animalURL,
         method: "GET"
     }).done(function (r) {
-        console.log("Step 2!");
+        
         //when we got our stuff we gotta make some still images out of them
         for (var i = 0; i < r.data.length; i++) {
             //make a div to store the image and the rating
@@ -62,9 +62,20 @@ function makeGIF() {
                 })
                 //prepend this to the div with the rating we just made
                 .prependTo("#animal" + i);
-            console.log("image " + i);
+            
         }
     })
+};
+
+//function to make our GIFs animate!
+function gifAnimate () {
+    //if it's static
+    if ($(this).attr("is-static") == "yes") {
+    //change the static url to the animated one!
+    $(this).attr("src", this.attr("motion"));
+    //change is-static to "no"
+    $(this).attr("is-static", "no");
+    }
 };
 
 $(document).ready(function () {
@@ -84,6 +95,9 @@ $(document).ready(function () {
 
     //run our make animal GIF function when an animal is clicked
     $(document).on("click", ".animal", makeGIF);
+
+    //run our function to make gifs animate or go static again
+    $(document).on("click", ".inline", gifAnimate);
 
     //call function to make buttons on page load
     makeButtons();
